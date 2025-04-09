@@ -209,3 +209,10 @@ MONGO_URI=mongodb://localhost:27017/shipment-tracking
 - `isDelivered: true` is set when a `"Delivered"` status is added.
 - All status updates are sorted by `timestamp` in ascending order.
 - Full validation and error messages are returned if input is invalid.
+
+> ⚠️ Only the following statuses are valid (in strict order):
+>
+> `loading`, `order confirmed`, `shipped`, `in transit`, `out for delivery`, `delivered`
+>
+> 🚫 Any other status will be rejected.  
+> 🔒 Skipping statuses or going out of order is not allowed.
