@@ -5,7 +5,7 @@ import TrackingResultPage from './pages/TrackingResultPage';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center ">
+    <div className="min-h-screen  flex items-center justify-center ">
       <Routes>
         <Route path="/" element={<TrackingInputPage />} />
         <Route path="/track/:shipmentId" element={<TrackingResultPage />} />

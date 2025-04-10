@@ -4,6 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import ShipmentDetails from '../components/ShipmentDetails';
 import StatusTimeline from '../components/StatusTimeline';
+import Navbar from '../components/Navbar';
+import { AuroraEffect } from '../components/AroraEffect';
 
 interface Shipment {
   shipmentId: string;
@@ -83,26 +85,32 @@ const TrackingResultPage = () => {
   }
 
   return (
-    <div className=" flex flex-col w-full mx-auto p-6">
-      {shipment && (
-        <>
-          <ShipmentDetails
-            shipmentId={shipment.shipmentId}
-            origin={shipment.origin}
-            destination={shipment.destination}
-            currentStatus={currentStatus}
-            currentLocation={currentLocation}
-          />
-          <StatusTimeline updates={statuses} />
-        </>
-      )}
-      {/* 👇 Back Button */}
-      <button
-        onClick={() => navigate('/')}
-        className="mt-6 justify-center items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition duration-200 shadow-md"
-      >
-        🔙 Back to Tracking Page
-      </button>
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-[#0d0d2b] via-[#1b1b3a] to-[#000000] text-white relative overflow-hidden">
+      <div className="mb-20 lg:mb-10">
+        <Navbar />
+      </div>
+      <AuroraEffect />
+      <div className="z-10">
+        {shipment && (
+          <>
+            <ShipmentDetails
+              shipmentId={shipment.shipmentId}
+              origin={shipment.origin}
+              destination={shipment.destination}
+              currentStatus={currentStatus}
+              currentLocation={currentLocation}
+            />
+            <StatusTimeline updates={statuses} />
+          </>
+        )}
+        {/* 👇 Back Button */}
+        <button
+          onClick={() => navigate('/')}
+          className="mt-6 w-full justify-center items-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition duration-200 shadow-md"
+        >
+          🔙 Back to Tracking Page
+        </button>
+      </div>
     </div>
   );
 };

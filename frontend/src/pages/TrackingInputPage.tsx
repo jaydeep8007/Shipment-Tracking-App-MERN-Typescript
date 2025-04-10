@@ -8,6 +8,7 @@ import StatusTimeline from '../components/StatusTimeline';
 
 import { AuroraEffect } from '../components/AroraEffect';
 import Input from '../components/Input';
+import Navbar from '../components/Navbar';
 
 interface Shipment {
   shipmentId: string;
@@ -67,6 +68,7 @@ const TrackingInputPage = () => {
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-[#0d0d2b] via-[#1b1b3a] to-[#000000] text-white relative overflow-hidden">
+      <Navbar/>
       <AuroraEffect />
       <Input
         shipmentId={shipmentId}
